@@ -1,12 +1,10 @@
-
-
-
 function calcular() {
   let ancho = document.getElementById("valorW").value;
   let largo = document.getElementById("valorH").value;
 
+
   if (ancho === "" || largo === "") {
-    alert("Por favor, escribe el ancho y el largo");
+    Swal.fire("Error", "Por favor, escribe el ancho y el largo", "error"); // ← CAMBIO
     return;
   }
 
@@ -14,11 +12,14 @@ function calcular() {
   largo = parseFloat(largo);
 
   if (ancho <= 0 || largo <= 0) {
-    alert("Los valores deben ser mayores a cero");
+    Swal.fire("Error", "Los valores deben ser mayores a cero", "error"); // ← CAMBIO
     return;
   }
 
   const area = ancho * largo;
+
+
+  Swal.fire("Resultado", `El área es ${area} m²`, "success"); // ← CAMBIO
 
 
   document.getElementById("resultado").textContent = area + " m²";
